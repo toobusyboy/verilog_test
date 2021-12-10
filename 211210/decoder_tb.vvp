@@ -1,0 +1,43 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "C:\PROGRA~1\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\PROGRA~1\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\PROGRA~1\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\PROGRA~1\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\PROGRA~1\iverilog\lib\ivl\va_math.vpi";
+S_0000014f8cdc6010 .scope module, "decoder_tb" "decoder_tb" 2 4;
+ .timescale -9 -9;
+v0000014f8cd79820_0 .var "A", 0 0;
+v0000014f8cd798c0_0 .net "D", 1 0, L_0000014f8cd7a170;  1 drivers
+S_0000014f8cdc61a0 .scope module, "UUT" "decoder" 2 9, 3 1 0, S_0000014f8cdc6010;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /OUTPUT 2 "D";
+L_0000014f8cdc6470 .functor NOT 1, v0000014f8cd79820_0, C4<0>, C4<0>, C4<0>;
+L_0000014f8cd932f0 .functor BUFZ 1, v0000014f8cd79820_0, C4<0>, C4<0>, C4<0>;
+v0000014f8cdc6330_0 .net "A", 0 0, v0000014f8cd79820_0;  1 drivers
+v0000014f8cd7eef0_0 .net "D", 1 0, L_0000014f8cd7a170;  alias, 1 drivers
+v0000014f8cd92f40_0 .net *"_ivl_2", 0 0, L_0000014f8cdc6470;  1 drivers
+v0000014f8cdc63d0_0 .net *"_ivl_8", 0 0, L_0000014f8cd932f0;  1 drivers
+L_0000014f8cd7a170 .concat8 [ 1 1 0 0], L_0000014f8cdc6470, L_0000014f8cd932f0;
+    .scope S_0000014f8cdc6010;
+T_0 ;
+    %vpi_call 2 12 "$dumpfile", "decoder_tb.vcd" {0 0 0};
+    %vpi_call 2 13 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000014f8cdc6010 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000014f8cd79820_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000014f8cd79820_0, 0, 1;
+    %delay 20, 0;
+    %vpi_call 2 17 "$display", "end of test" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "decoder_tb.v";
+    "./decoder.v";
